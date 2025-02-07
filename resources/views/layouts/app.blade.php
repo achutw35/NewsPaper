@@ -51,9 +51,17 @@
                 Settings
               </a>
               <div class="dropdown-divider"></div>
-              <a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
-                Logout
-              </a>
+              
+                 <!-- Authentication -->
+                 <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-responsive-nav-link :href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();" class="dropdown-item has-icon text-danger">
+                        <i class="fas fa-sign-out-alt">Log Out</i>
+                    </x-responsive-nav-link>
+                </form>
             </div>
           </li>
         </ul>
